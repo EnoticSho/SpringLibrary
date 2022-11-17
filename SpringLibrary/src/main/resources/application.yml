@@ -1,0 +1,13 @@
+server:
+  port: 8180
+
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/project1
+    username: bestuser
+    password: bestuser
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
