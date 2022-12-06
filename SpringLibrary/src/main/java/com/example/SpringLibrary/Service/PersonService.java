@@ -9,5 +9,5 @@ public interface PersonService {
 
     public void save(Person person);
 
-    public void findById(int id);
+    public Person findById(int id);
 }

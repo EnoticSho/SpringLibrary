@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 
 @Controller
@@ -22,9 +21,8 @@ public class PersonController {
         return "getPeople";
     }
 
-    @RequestMapping("/people/new")
-    public String addNewPerson(Model model) {
-        model.addAttribute("newPerson", new Person());
+    @GetMapping("/people/new")
+    public String addNewPerson(@ModelAttribute("newPerson") Person person) {
         return "form_for_new_person";
     }
 
@@ -35,7 +33,8 @@ public class PersonController {
     }
 
     @GetMapping("/people/{id}")
-    public String showPersonInfo(@PathVariable int id) {
-        personService.findById(id);
+    public String showPersonInfo(@PathVariable int id, Model model) {
+        model.addAttribute("person", personService.findById(id));
+        return "personInfo";
     }
 }

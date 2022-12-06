@@ -74,9 +74,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                ", name='" + name + '\'' +
-                ", year=" + year +
-                '}';
+        return name + ", " + year;
     }
 }

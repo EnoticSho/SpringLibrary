@@ -3,12 +3,12 @@ package com.example.SpringLibrary.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book")
+@Table(name = "BOOKS")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_book")
+    @Column(name = "book_id")
     private int id;
 
     @Column(name = "name")
@@ -17,10 +17,10 @@ public class Book {
     @Column(name = "author")
     private String author;
 
-    @Column(name = "year")
+    @Column(name = "date_out")
     private int year;
 
-    @JoinColumn(name = "id_person")
+    @JoinColumn(name = "human_id")
     @ManyToOne(cascade = CascadeType.ALL)
     private Person person;
 
