@@ -28,6 +28,15 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person findById(int id) {
         Optional<Person> byId = personDAO.findById(id);
-        byId.ge
+        if (byId.isPresent()) {
+            Person person = byId.get();
+            return person;
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteById(int id) {
+        personDAO.deleteById(id);
     }
 }

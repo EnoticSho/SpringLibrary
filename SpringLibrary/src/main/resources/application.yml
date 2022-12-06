@@ -10,4 +10,7 @@ spring:
     username: bestuser
     password: bestuser
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

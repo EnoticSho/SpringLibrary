@@ -35,7 +35,26 @@ public class PersonController {
     }
 
     @GetMapping("/people/{id}")
-    public String showPersonInfo(@PathVariable int id) {
-        personService.findById(id);
+    public String showPersonInfo(@PathVariable int id, Model model) {
+        model.addAttribute("personInfo",personService.findById(id));
+        return "personInfo";
+    }
+
+    @DeleteMapping("/people/{id}")
+    public String deletePerson(@PathVariable int id) {
+        personService.deleteById(id);
+        return "redirect:/people";
+    }
+
+    @GetMapping("/people/{id}/edit")
+    public String editPersonInfo(@PathVariable int id, Model model) {
+        model.addAttribute("newPerson", personService.findById(id));
+        return "editPerson";
+    }
+
+    @PutMapping("/people")
+    public String savePerson(@ModelAttribute("newPerson") Person person) {
+        personService.save(person);
+        return "redirect:/people";
     }
 }
